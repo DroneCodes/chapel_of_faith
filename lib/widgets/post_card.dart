@@ -227,7 +227,7 @@ class _PostCardState extends State<PostCard> {
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(top: 8),
-                  child: RichText(text: TextSpan(style: const TextStyle(color: textColor,), children: [
+                  child: RichText(text: TextSpan(style: const TextStyle(color: primaryColor,), children: [
                     TextSpan(
                       text: widget.snap["username"],
                       style: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:chapel_of_faith/auth/auth_gate.dart';
 import 'package:flutter/material.dart';
 
 import '../variables/colors.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Center()));
+        context, MaterialPageRoute(builder: (context) => AuthGate()));
   }
 
   @override
@@ -37,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
             const Text(
               "Together we shall stand",
               style: TextStyle(
-                  color: textColor, fontSize: 12, fontWeight: FontWeight.bold),
+                  color: primaryColor, fontSize: 12, fontWeight: FontWeight.bold),
             )
           ],
         ),
