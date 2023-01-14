@@ -1,3 +1,4 @@
+import 'package:chapel_of_faith/auth/firestore_methods.dart';
 import 'package:chapel_of_faith/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -66,13 +67,25 @@ class _CommentCardState extends State<CommentCard> {
               ),
             ),
           ),
-
           Row(
             children: [
               Container(
                 padding: const EdgeInsets.all(8),
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
-              )
+                child: IconButton(
+                  onPressed: () => FirestoreMethods().likeComment(
+                    widget.snap["postId"],
+                    user.uid,
+                    widget.snap["likes"],
+                    widget.snap["commentId"],
+                  ),
+                  icon: widget.snap["likes"].contains(user.uid)
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(Icons.favorite_border),
+                ),
+              ),
             ],
           )
         ],
