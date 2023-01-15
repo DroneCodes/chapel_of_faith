@@ -22,7 +22,7 @@ class AuthMethods {
   }
 
   // create a function to signup user
-  Future<String> signUpUser({required String email,
+  Future<String> registerUser({required String email,
     required String password,
     required String username,
     required String bio,

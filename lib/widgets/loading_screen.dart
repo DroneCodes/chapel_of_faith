@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -35,7 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen>
       ),
     );
 
-    _rotationAnimation = Tween<double>(begin: 0, end: 2).animate(
+    _rotationAnimation = Tween<double>(begin: 0, end: 15).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOutCubic,
@@ -57,9 +56,9 @@ class _LoadingScreenState extends State<LoadingScreen>
           turns: _rotationAnimation,
           child: Container(
             decoration: const BoxDecoration(
-              shape: BoxShape.rectangle
+              shape: BoxShape.rectangle,
+              color: Colors.white
             ),
-            color: primaryColor,
             height: 40,
             width: 40,
           ),
