@@ -55,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Image.asset(
                 "assets/chapel_logo.jpg",
                 color: primaryColor,
-                height: 80,
+                height: 65,
               ),
               const SizedBox(
                 height: 64,

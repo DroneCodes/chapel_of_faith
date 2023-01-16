@@ -75,6 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -90,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Image.asset(
                 "assets/chapel_logo.jpg",
                 color: primaryColor,
-                height: 80,
+                height: 65,
               ),
 
               const SizedBox(
