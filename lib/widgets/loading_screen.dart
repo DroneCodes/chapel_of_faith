@@ -20,7 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(seconds: 60),
       vsync: this,
     )..repeat(reverse: true);
 

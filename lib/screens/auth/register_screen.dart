@@ -88,8 +88,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
 
               Image.asset(
-                "assets/logo.jpg",
+                "assets/chapel_logo.jpg",
                 color: primaryColor,
+                height: 80,
               ),
 
               const SizedBox(

@@ -69,8 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(),
               ),
               Image.asset(
-                "assets/logo.jpg",
+                "assets/chapel_logo.jpg",
                 color: primaryColor,
+                height: 80,
               ),
               const SizedBox(
                 height: 64,
@@ -111,23 +112,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
 
               Flexible(
-                child: Container(),
                 flex: 2,
+                child: Container(),
               ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: const Text("Don't have an account?"),
                     padding: const EdgeInsets.symmetric(
                       vertical: 8
                     ),
+                    child: const Text("Don't have an account?"),
                   ),
                   GestureDetector(
                     onTap: navigateToSignUp,
