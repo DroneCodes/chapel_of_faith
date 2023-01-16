@@ -20,7 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 60),
+      duration: const Duration(seconds: 5),
       vsync: this,
     )..repeat(reverse: true);
 
@@ -34,7 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen>
       ),
     );
 
-    _rotationAnimation = Tween<double>(begin: 0, end: 15).animate(
+    _rotationAnimation = Tween<double>(begin: 0, end: 30).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOutCubic,

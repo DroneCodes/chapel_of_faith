@@ -3,6 +3,7 @@ import 'package:chapel_of_faith/screens/bottom_bar_screens/feed_screen.dart';
 import 'package:chapel_of_faith/screens/bottom_bar_screens/profile_screen.dart';
 import 'package:chapel_of_faith/screens/bottom_bar_screens/search_screen.dart';
 import 'package:chapel_of_faith/variables/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
     const FeedScreen(),
     const SearchScreen(),
     const AddPostScreen(),
-    const ProfileScreen(),
+    ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid,),
   ];
 
   @override
