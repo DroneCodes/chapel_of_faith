@@ -121,7 +121,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final User user = Provider.of<UserProvider>(context).getUser;
+    final UserProvider userProvider = Provider.of<UserProvider>(context);
     return _file == null
         ? Center(
             child: IconButton(
@@ -147,9 +147,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
               actions: [
                 TextButton(
                   onPressed: () => postImage(
-                    user.uid,
-                    user.username,
-                    user.photoUrl,
+                    userProvider.getUser.uid,
+                    userProvider.getUser.username,
+                    userProvider.getUser.photoUrl,
                   ),
                   child: const Text(
                     "Post",
@@ -177,7 +177,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(user.photoUrl),
+                      backgroundImage: NetworkImage(userProvider.getUser.photoUrl),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.45,

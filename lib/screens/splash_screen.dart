@@ -1,5 +1,7 @@
 import 'package:chapel_of_faith/auth/auth_gate.dart';
+import 'package:chapel_of_faith/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../variables/colors.dart';
 
@@ -21,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => AuthGate()));
+        context, MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 
   @override
@@ -32,8 +34,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/logo.jpg',
+            SvgPicture.asset(
+              "assets/church_logo.svg",
+              color: primaryColor,
+              height: 32,
             ),
             const Text(
               "Together we shall stand",

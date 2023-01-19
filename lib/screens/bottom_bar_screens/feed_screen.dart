@@ -2,6 +2,7 @@ import 'package:chapel_of_faith/variables/colors.dart';
 import 'package:chapel_of_faith/widgets/post_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -17,10 +18,9 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         centerTitle: false,
-        title: Image.asset(
-          "assets/chapel_logo.jpg",
-          color: primaryColor,
-          height: 32,
+        title: SvgPicture.asset(
+          "assets/church_logo.svg",
+          height: 30,
         ),
         actions: [
           IconButton(

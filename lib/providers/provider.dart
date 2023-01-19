@@ -1,10 +1,10 @@
 import 'package:chapel_of_faith/auth/auth_methods.dart';
 import 'package:chapel_of_faith/models/user_model.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class UserProvider extends ChangeNotifier {
-  final AuthMethods authMethods = AuthMethods();
   User? _user;
+  final AuthMethods authMethods = AuthMethods();
 
   User get getUser => _user!;
 

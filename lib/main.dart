@@ -1,6 +1,12 @@
+import 'package:chapel_of_faith/providers/provider.dart';
+import 'package:chapel_of_faith/screens/auth/login_screen.dart';
+import 'package:chapel_of_faith/screens/screen_layout.dart';
 import 'package:chapel_of_faith/screens/splash_screen.dart';
+import 'package:chapel_of_faith/variables/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
@@ -17,10 +23,41 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Chapel Youth Fellowship',
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Chapel Youth Fellowship',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: backgroundColor
+        ),
+        home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.active) {
+              if (snapshot.hasData) {
+                return const ScreenLayout();
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text("${snapshot.error}"),
+                );
+              }
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: primaryColor,
+                ),
+              );
+            }
+            return const LoginScreen();
+          },
+        ),
+      ),
     );
   }
 }

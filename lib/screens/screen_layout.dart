@@ -44,7 +44,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
     const FeedScreen(),
     const SearchScreen(),
     const AddPostScreen(),
-    ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid,),
+    ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid),
   ];
 
   @override

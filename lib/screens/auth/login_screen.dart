@@ -3,6 +3,7 @@ import 'package:chapel_of_faith/screens/auth/register_screen.dart';
 import 'package:chapel_of_faith/variables/variables_utils.dart';
 import 'package:chapel_of_faith/widgets/loading_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../variables/colors.dart';
 import '../../widgets/text_input_field.dart';
@@ -55,7 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -69,10 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              Image.asset(
-                "assets/chapel_logo.jpg",
-                color: primaryColor,
-                height: 65,
+              SvgPicture.asset(
+                "assets/church_logo.svg",
+                height: 70,
               ),
               const SizedBox(
                 height: 64,

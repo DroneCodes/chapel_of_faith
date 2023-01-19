@@ -88,19 +88,32 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: CircularProgressIndicator(),
                   );
                 }
-                return StaggeredGrid.count(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4,
-                  children: List.generate(
-                    (snapshot.data! as dynamic).docs.length,
-                    (index) => StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 2,
-                      child:
-                          Image.network(snapshot.data!.docs[index]["postUrl"]),
-                    ),
+                // return StaggeredGrid.count(
+                //   crossAxisCount: 4,
+                //   mainAxisSpacing: 4,
+                //   crossAxisSpacing: 4,
+                //   children: List.generate(
+                //     (snapshot.data! as dynamic).docs.length,
+                //     (index) => StaggeredGridTile.count(
+                //       crossAxisCellCount: 2,
+                //       mainAxisCellCount: 2,
+                //       child:
+                //           Image.network(snapshot.data!.docs[index]["postUrl"]),
+                //     ),
+                //   ),
+                // );
+
+                return StaggeredGridView.countBuilder(
+                  crossAxisCount: 3,
+                  itemCount: (snapshot.data as dynamic).docs.length,
+                  itemBuilder: (context, index) => Image.network(
+                      (snapshot.data! as dynamic).docs[index]["postUrl"]),
+                  staggeredTileBuilder: (index) => StaggeredTile.count(
+                    (index % 7 == 0) ? 2 : 1,
+                    (index % 7 == 0) ? 2 : 1,
                   ),
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
                 );
               },
             ),

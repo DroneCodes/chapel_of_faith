@@ -192,7 +192,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
                     userData["username"],
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
